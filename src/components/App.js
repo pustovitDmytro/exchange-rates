@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import Desk from './Desk';
+import Error from './Error';
 import PropTypes from 'prop-types';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -21,7 +22,7 @@ class App extends React.Component {
     render() {
         return (
             <MuiThemeProvider>
-                <Desk/>
+                <Error message="looks like external API didn't response..."/>
             </MuiThemeProvider>
         );
     }
