@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import films from './films';
+import rates from './rates';
+import history from './history';
+import current from './current';
 
 const rootReducer = combineReducers({
-  films,
+  rates,
+  history,
+  current,
 });
 
 export default rootReducer;

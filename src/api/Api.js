@@ -4,7 +4,7 @@
 import fetch from 'isomorphic-fetch';
 class Api {
   constructor(){
-    this.domain = 'http://localhost:8080';
+    this.domain = 'http://api.fixer.io';
   }
   fetch(url, params = {}){
     return fetch(url, params);
@@ -13,12 +13,12 @@ class Api {
     return this.fetch(this.domain +'/'+ url,params);
   }
   post(url, data){
-  let formdata = new FormData(data);
-  return this.fetch(this.domain +'/' + url, {
-    method: 'POST',
-    body: formdata
-  });
-}
+    let formdata = new FormData(data);
+    return this.fetch(this.domain +'/' + url, {
+      method: 'POST',
+      body: formdata
+    });
+  }
   delete(url, id){
     return this.fetch(this.domain +'/' + url+'/'+id, {
       method: 'DELETE'

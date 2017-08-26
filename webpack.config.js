@@ -21,7 +21,7 @@ const common = (PATHS,isDebug) => merge([
         devtool: 'source-map',
         devServer: {
             compress: true,
-            port: 5000,
+            port: 5050,
             hot: true,
             https: false
         },

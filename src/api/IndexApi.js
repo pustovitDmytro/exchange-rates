@@ -4,14 +4,8 @@
 import Api from './Api';
 
 class IndexApi extends Api {
-  getFilms(){
-    return this.get(`films/`);
-  }
-  addFilm(data){
-    return this.post(`films/`,data);
-  }
-  deleteFilm(id){
-    return this.get(`films/`,id);
+  getRates(base){
+    return this.get(`latest?base=${base}`);
   }
 }
 

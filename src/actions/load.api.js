@@ -28,4 +28,4 @@ const load = (API) =>
                     console.log(error)
                 });
 
-export const getFilms = () => load(Api)('getFilms', 'GET_FILMS');
+export const getRates = (currency) => load(Api)('getRates', 'GET_RATES',currency);

@@ -5,18 +5,30 @@ import React from 'react';
 import Desk from './Desk';
 import PropTypes from 'prop-types';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
     }
     getChildContext() {
-        return {films : this.props.store.getState().films.array};
+        return {
+            rates : this.props.store.getState().rates,
+            current : this.props.store.getState().current,
+            history : this.props.store.getState().history
+        };
     }
     render() {
         return (
-            <Desk/>
+            <MuiThemeProvider>
+                <Desk/>
+            </MuiThemeProvider>
         );
     }
 }
-App.childContextTypes = {films: PropTypes.array};
+App.childContextTypes = {
+    rates: PropTypes.object,
+    current: PropTypes.object,
+    history: PropTypes.object
+};
 export default App;

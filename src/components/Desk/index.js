@@ -4,33 +4,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Desk.scss';
-import Film from '../Film';
-import Menu from '../Menu';
-import AddFilm from '../AddFilm';
 import { connect } from 'react-redux';
+import CurrencyTable from '../СurrencyTable';
+import RatesBar from '../RatesBar';
+import HistoryBar from '../HistoryBar';
+import Transactions from '../Transactions';
 
-const Desk = ({films}) => (
+const Desk = ({rates,current,history}) => (
     <div>
-        <Menu num={films.length}/>
     <div className={s.container}>
-        {
-            films.map(({title,src,year,stars,format},i) =>
-            <div key={i} className={s.column}>
-                <Film
-                    title={title}
-                    year={year}
-                    stars={stars}
-                    format={format}
-                    src={src}/>
-            </div>)
-        }
-        <AddFilm/>
+        <RatesBar
+            amount={current.amount}
+            base={current.base}/>
+        <CurrencyTable rates={rates.array}/>
     </div>
+        <HistoryBar date={rates.date}/>
+        <Transactions
+            date={rates.date}
+            history={history}/>
     </div>
 );
 function mapStateToProps (state) {
     return {
-        films: state.films.array
+        rates: state.rates,
+        current: state.current,
+        history: state.history,
     }
 }
 export default connect(mapStateToProps)(Desk);

@@ -3,13 +3,9 @@
  */
 import React from 'react';
 import s from './Find.scss';
-import cx from "classnames";
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Formsy from 'formsy-react';
-import searchFilm from '../../../actions/search.films';
-import Input from '../../Input';
-import {getFilms} from '../../../actions/load.api';
+import Input from './Input';
 
 class Find extends React.Component{
     constructor(props) {
@@ -29,14 +25,12 @@ class Find extends React.Component{
             canSubmit: false
         });
     }
-    submit({query}) {
-        const {field,dispatch} = this.props;
-        if (query)
-            dispatch(searchFilm(query,field));
-        else dispatch(getFilms());
+    submit({query=''}) {
+        const {dispatch,searchFunc} = this.props;
+        dispatch(searchFunc(query));
     }
     render() {
-        const {placeholder} = this.props;
+        const {placeholder,hint} = this.props;
         return (
                 <Formsy.Form
                     className={s.form}
@@ -44,15 +38,10 @@ class Find extends React.Component{
                     onValid={this.enableButton}
                     onInvalid={this.disableButton}>
                     <Input
-                        type="text"
-                        name="query"
+                        hint={hint}
+                        placeholder={placeholder}
                         validations="isAlpha"
-                        placeholder={placeholder}/>
-                    <input
-                        className={s.submit}
-                        name="button"
-                        type="submit"
-                        disabled={!this.state.canSubmit}/>
+                        name="query"/>
                 </Formsy.Form>
         );
     }
