@@ -6,6 +6,7 @@ import s from './Find.scss';
 import { connect } from 'react-redux';
 import Formsy from 'formsy-react';
 import Input from './Input';
+import validators from './validators';
 
 class Find extends React.Component{
     constructor(props) {
@@ -33,14 +34,16 @@ class Find extends React.Component{
         const {placeholder,hint} = this.props;
         return (
                 <Formsy.Form
-                    className={s.form}
+                    className={s.find}
                     onValidSubmit={this.submit}
                     onValid={this.enableButton}
                     onInvalid={this.disableButton}>
                     <Input
                         hint={hint}
                         placeholder={placeholder}
-                        validations="isAlpha"
+                        validations={{
+                        matchRegexp: validators.currency
+                    }}
                         name="query"/>
                 </Formsy.Form>
         );

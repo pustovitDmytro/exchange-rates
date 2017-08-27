@@ -24,7 +24,8 @@ const rates = (state = {}, action) => {
                 array: toArray(action.payload.rates),
                 static: toArray(action.payload.rates),
                 date: action.payload.date,
-                base: action.payload.base
+                base: action.payload.base,
+                error: null
             };
         case 'SEARCH_RATES':
             return {

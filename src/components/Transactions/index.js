@@ -2,11 +2,11 @@
  * Created by pusti on 26.08.2017.
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import {Short, Long} from './Items';
+
 
 const Transactions = ({date,history,dispatch}) => (
     <List>
@@ -22,7 +22,12 @@ const Transactions = ({date,history,dispatch}) => (
                         <ListItem
                             key={0}
                             primaryText ={
-                                <Long date={date} oldBase={oldBase} newBase={newBase} oldAmount={oldAmount} newAmount={newAmount}/>
+                                <Long
+                                    date={date}
+                                    oldBase={oldBase}
+                                    newBase={newBase}
+                                    oldAmount={oldAmount}
+                                    newAmount={newAmount}/>
                             }>
                         </ListItem>
                     ]}

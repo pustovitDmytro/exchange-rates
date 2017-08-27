@@ -3,10 +3,9 @@
  */
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 import exchange from '../../actions/exchange';
 import { connect } from 'react-redux';
-
+import s from './CurrencyTable.scss';
 import {
     Table,
     TableBody,
@@ -25,9 +24,9 @@ const Currency = ({rates,base,dispatch}) => (
                 displaySelectAll={false}
                 adjustForCheckbox={false}>
                 <TableRow>
-                    <TableHeaderColumn>#</TableHeaderColumn>
-                    <TableHeaderColumn>Name</TableHeaderColumn>
-                    <TableHeaderColumn>Value</TableHeaderColumn>
+                    <TableHeaderColumn className={s.hidemobile}>#</TableHeaderColumn>
+                    <TableHeaderColumn style={{padding:5}}>Name</TableHeaderColumn>
+                    <TableHeaderColumn style={{padding:5}}>Value</TableHeaderColumn>
                     <TableHeaderColumn/>
                 </TableRow>
             </TableHeader>
@@ -38,10 +37,10 @@ const Currency = ({rates,base,dispatch}) => (
                 {
                     rates.map(({name,value},i) =>
                         <TableRow key={i}>
-                            <TableRowColumn>{i+1}</TableRowColumn>
-                            <TableRowColumn>{name}</TableRowColumn>
-                            <TableRowColumn>{value}</TableRowColumn>
-                            <TableRowColumn>
+                            <TableRowColumn className={s.hidemobile}>{i+1}</TableRowColumn>
+                            <TableRowColumn style={{padding:5}}>{name}</TableRowColumn>
+                            <TableRowColumn style={{padding:5}}>{value}</TableRowColumn>
+                            <TableRowColumn style={{padding:5}}>
                                 <RaisedButton
                                     onClick={change(dispatch,name,value)}
                                     label="Change"

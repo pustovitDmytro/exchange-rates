@@ -5,22 +5,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {searchRates} from '../../actions/search';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import Avatar from 'material-ui/Avatar';
+import unknown from './unknown.png';
 import Find from '../Find';
 
-const Panel = ({amount,base}) => (
+const Panel = ({amount,base,src,user}) => (
     <Toolbar>
-        <ToolbarGroup firstChild={true}>
-            <ToolbarTitle text="Hello, User" />
-            <ToolbarSeparator />
-        </ToolbarGroup>
         <ToolbarGroup>
-            <ToolbarTitle text={amount}/>
-            <ToolbarTitle text={base} />
+            <Avatar src={src||unknown} />
+            <ToolbarTitle text={`User, ${base}`} />
         </ToolbarGroup>
-        <ToolbarGroup>
+        <ToolbarGroup lastChild={true}>
             <Find
-                hint="Input Currency name"
-                placeholder="Search currency"
+                hint="currency name"
+                placeholder="Search"
                 searchFunc={searchRates}/>
         </ToolbarGroup>
     </Toolbar>

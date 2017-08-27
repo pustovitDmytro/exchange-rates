@@ -2,26 +2,30 @@
  * Created by pusti on 06.08.2017.
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 import s from './Desk.scss';
 import { connect } from 'react-redux';
 import CurrencyTable from '../СurrencyTable';
 import RatesBar from '../RatesBar';
 import HistoryBar from '../HistoryBar';
 import Transactions from '../Transactions';
+import Paper from 'material-ui/Paper';
 
 const Desk = ({rates,current,history}) => (
-    <div>
     <div className={s.container}>
-        <RatesBar
-            amount={current.amount}
-            base={current.base}/>
-        <CurrencyTable rates={rates.array}/>
-    </div>
-        <HistoryBar date={rates.date}/>
-        <Transactions
-            date={rates.date}
-            history={history}/>
+        <Paper zDepth={1} className={s.rates}>
+            <RatesBar
+                amount={current.amount}
+                base={current.base}/>
+            <CurrencyTable rates={rates.array}/>
+        </Paper>
+        <Paper zDepth={1} className={s.transactions}>
+            <HistoryBar date={rates.date}/>
+            <Paper zDepth={3}>
+            <Transactions
+                date={rates.date}
+                history={history}/>
+                </Paper>
+        </Paper>
     </div>
 );
 function mapStateToProps (state) {

@@ -20,9 +20,15 @@ class App extends React.Component {
         };
     }
     render() {
+        const apiError = this.props.store.getState().rates.error;
         return (
             <MuiThemeProvider>
-                <Error message="looks like external API didn't response..."/>
+                {
+                    apiError ?
+                        <Error message="looks like external API didn't respond..."/>
+                        :
+                        <Desk/>
+                }
             </MuiThemeProvider>
         );
     }

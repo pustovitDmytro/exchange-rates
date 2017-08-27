@@ -1,19 +1,26 @@
 @import "../styles.scss";
 
 .container{
+  width: 100vw;
+  min-height: 100vh;
+  padding: 30px;
   display:flex;
-  flex-wrap: wrap;
-  padding: 50px;
+  justify-content: space-around;
+  align-items: flex-start;
   @media #{$phone}{
+    padding: 5px;
     flex-direction: column;
-    width: 100%;
-    padding: 10px;
   }
 }
-.column{
-  display: flex;
-  width: 500px;
+.rates{
+  width: 50%;
   @media #{$phone}{
-    flex-direction: column;
+    width: 100%;
+  }
+}
+.transactions{
+  width: 45%;
+  @media #{$phone}{
+    width: 100%;
   }
 }

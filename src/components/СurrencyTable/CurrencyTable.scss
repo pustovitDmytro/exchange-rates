@@ -1,0 +1,6 @@
+@import "../styles.scss";
+.hidemobile{
+  @media #{$small-phone}{
+    display:none;
+  }
+}

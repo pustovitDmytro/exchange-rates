@@ -14,7 +14,7 @@ export const Short = ({oldBase,newBase}) => (
 );
 
 export const Long = ({date, oldBase,oldAmount,newBase,newAmount}) => (
-    <div>
+    <div className={s.long}>
         <em className={s.date}>{date}:</em>
         <span className={s.out}> {oldAmount+" "+oldBase} </span>
         <span> has been changed into </span>
