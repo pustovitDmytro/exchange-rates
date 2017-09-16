@@ -1,5 +1,6 @@
 # exchange-rates
 react-redux SPA with rates-api integration
+
 test assignment for taking frontend software engineer position at Incuber Starthubit Ltd.
 
 ## Table of Contents
@@ -92,9 +93,9 @@ In the first time you have balance 100$
 
 and empty trade history. you can change this (100$) to another current rate of exchange.
 
-•	The page will show rates resolved from the requests with a proper design – nice design – high score.
-•	implement search functionality.
-•	The design should be based on Material-UI (http://www.material-ui.com) can include images and should look good.
+- The page will show rates resolved from the requests with a proper design – nice design – high score.
+- implement search functionality.
+- The design should be based on Material-UI (http://www.material-ui.com) can include images and should look good.
 
 Please make sure the code is clean and you didn’t leave unused files in the project.
 Please make it readable as possible, valid html and javascript files.
